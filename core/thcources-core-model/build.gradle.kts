@@ -3,9 +3,10 @@ plugins {
 }
 
 android {
-    namespace = "com.example.thcources.core.di"
+    namespace = "com.example.thcources.core.model"
 }
 
 dependencies {
-    implementation(libs.hilt)
+    api(libs.eithernet)
+    api(libs.kotlinx.datetime)
 }

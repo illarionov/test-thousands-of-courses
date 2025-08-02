@@ -32,5 +32,6 @@ include(":core:thcources-core-di")
 include(":core:thcources-core-model")
 include(":core:thcources-core-ui")
 include(":data:thcources-data-mockwebserver")
-include(":data:thcources-data-service")
+include(":data:thcources-data-network")
+include(":data:thcources-data-database")
 

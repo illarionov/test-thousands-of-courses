@@ -4,15 +4,9 @@ plugins {
 }
 
 android {
-    namespace = "com.example.thcources.data.serviceapi"
+    namespace = "com.example.thcources.data.mockwebserver"
 }
 
 dependencies {
-    implementation(projects.core.thcourcesCoreModel)
-    implementation(libs.okhttp)
     implementation(libs.okhttp.mockwebserver)
-
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.kotlinx.serialization)
-    implementation(libs.kotlinx.serialization.json)
 }
