@@ -76,6 +76,7 @@ dependencies {
     implementation(projects.core.thcourcesCoreDi)
     implementation(projects.core.thcourcesCoreModel)
     implementation(projects.core.thcourcesCoreUi)
+    implementation(projects.data.thcourcesDataMockwebserver)
 
     implementation(libs.adapterdelegates)
     implementation(libs.androidx.appcompat)

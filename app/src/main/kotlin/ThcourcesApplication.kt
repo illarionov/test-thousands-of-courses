@@ -10,6 +10,7 @@ import coil3.disk.DiskCache
 import coil3.disk.directory
 import coil3.memory.MemoryCache
 import coil3.network.okhttp.OkHttpNetworkFetcherFactory
+import com.example.thcources.data.mockwebserver.ThcourcesMockWebServer
 import com.example.thcources.wiring.NetworkModule.RootOkhttpClient
 import dagger.hilt.android.HiltAndroidApp
 import okhttp3.OkHttpClient
@@ -21,15 +22,23 @@ class ThcourcesApplication : SingletonImageLoader.Factory,  Application() {
     @set:Inject
     var coilImageLoaderFactory: Provider<CoilImageLoaderFactory>? = null
 
+    @set:Inject
+    var mockWebServer: Provider<ThcourcesMockWebServer>? = null
+
     override fun onCreate() {
         super.onCreate()
         setupStrictMode()
+        startMockWebServer()
     }
 
     override fun newImageLoader(context: PlatformContext): ImageLoader {
         return checkNotNull(coilImageLoaderFactory) {
             "Image loader factory not injected"
         }.get().newImageLoader(context)
+    }
+
+    private fun startMockWebServer() {
+        checkNotNull(mockWebServer) { "Mock web server not injected" }.get().start()
     }
 
     private companion object {

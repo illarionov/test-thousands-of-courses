@@ -8,8 +8,9 @@ android {
 }
 
 dependencies {
-    api(projects.core.coffee1706CoreModel)
-    api(libs.okhttp)
+    implementation(projects.core.thcourcesCoreModel)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.mockwebserver)
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.kotlinx.serialization)
