@@ -1,4 +1,4 @@
-package com.example.thcources.ui.home
+package com.example.thcourses.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

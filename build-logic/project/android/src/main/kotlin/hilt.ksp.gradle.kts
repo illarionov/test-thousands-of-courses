@@ -1,4 +1,4 @@
-package com.example.thcources.gradle.android
+package com.example.thcourses.gradle.android
 
 plugins {
     id("com.google.devtools.ksp")

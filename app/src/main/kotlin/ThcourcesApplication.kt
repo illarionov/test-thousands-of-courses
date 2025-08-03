@@ -1,4 +1,4 @@
-package com.example.thcources
+package com.example.thcourses
 
 import android.app.Application
 import android.os.Build
@@ -10,20 +10,20 @@ import coil3.disk.DiskCache
 import coil3.disk.directory
 import coil3.memory.MemoryCache
 import coil3.network.okhttp.OkHttpNetworkFetcherFactory
-import com.example.thcources.data.mockwebserver.ThcourcesMockWebServer
-import com.example.thcources.wiring.NetworkModule.RootOkhttpClient
+import com.example.thcourses.data.mockwebserver.thcoursesMockWebServer
+import com.example.thcourses.wiring.NetworkModule.RootOkhttpClient
 import dagger.hilt.android.HiltAndroidApp
 import okhttp3.OkHttpClient
 import javax.inject.Inject
 import javax.inject.Provider
 
 @HiltAndroidApp
-class ThcourcesApplication : SingletonImageLoader.Factory,  Application() {
+class thcoursesApplication : SingletonImageLoader.Factory,  Application() {
     @set:Inject
     var coilImageLoaderFactory: Provider<CoilImageLoaderFactory>? = null
 
     @set:Inject
-    var mockWebServer: Provider<ThcourcesMockWebServer>? = null
+    var mockWebServer: Provider<thcoursesMockWebServer>? = null
 
     override fun onCreate() {
         super.onCreate()

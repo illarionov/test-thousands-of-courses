@@ -2,7 +2,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.example.thcources.gradle.android"
+group = "com.example.thcourses.gradle.android"
 
 dependencies {
     implementation(libs.agp.plugin.api)

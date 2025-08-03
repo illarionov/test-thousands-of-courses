@@ -28,4 +28,4 @@ dependencyResolutionManagement {
 
 include("android")
 
-rootProject.name = "thcources-gradle-project-plugins"
+rootProject.name = "thcourses-gradle-project-plugins"

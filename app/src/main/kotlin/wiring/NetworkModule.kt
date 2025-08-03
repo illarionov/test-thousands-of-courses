@@ -1,6 +1,6 @@
-package com.example.thcources.wiring
+package com.example.thcourses.wiring
 
-import com.example.thcources.BuildConfig
+import com.example.thcourses.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -16,15 +16,15 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    private const val OKHTTP_CACHE_SUBDIR = "thcources"
+    private const val OKHTTP_CACHE_SUBDIR = "thcourses"
 
 //    @Provides
 //    @Singleton
-//    internal fun providesThcourcesNetworkDataSource(
-//        @ThcourcesClient okhttpClient: dagger.Lazy<@JvmSuppressWildcards OkHttpClient>,
+//    internal fun providesthcoursesNetworkDataSource(
+//        @thcoursesClient okhttpClient: dagger.Lazy<@JvmSuppressWildcards OkHttpClient>,
 //        @ComputationCoroutineDispatcherContext computationDispatcher: CoroutineContext,
-//        @ThcourcesClient baseUrl: String,
-//    ): ThcourcesNetworkDataSource {
+//        @thcoursesClient baseUrl: String,
+//    ): thcoursesNetworkDataSource {
 //        val lazyCallFactory = Call.Factory { request: Request ->
 //            okhttpClient.get().newCall(request)
 //        }
@@ -41,8 +41,8 @@ object NetworkModule {
      */
     @Provides
     @Singleton
-    @ThcourcesClient
-    fun provideThcourcesOkhttpClient(
+    @thcoursesClient
+    fun providethcoursesOkhttpClient(
         @RootOkhttpClient rootOkhttpClient: dagger.Lazy<@JvmSuppressWildcards OkHttpClient>,
         cache: dagger.Lazy<@JvmSuppressWildcards Cache>,
         @LoggingInterceptor loggingInterceptor: Interceptor?,
@@ -58,8 +58,8 @@ object NetworkModule {
     }
 
     @Provides
-    @ThcourcesClient
-    fun providesThcourcesBaseUrl(): String = BuildConfig.TSCOURCES_API_URL
+    @thcoursesClient
+    fun providesthcoursesBaseUrl(): String = BuildConfig.TSCOURCES_API_URL
 
     /**
      * Базовый okhttp клиент, от которого создаются клиенты под конкретные сервисы.
@@ -90,7 +90,7 @@ object NetworkModule {
     annotation class RootOkhttpClient
 
     @Qualifier
-    annotation class ThcourcesClient
+    annotation class thcoursesClient
 
     @Qualifier
     annotation class LoggingInterceptor

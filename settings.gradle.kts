@@ -28,10 +28,11 @@ plugins {
 
 rootProject.name = "thousands-of-courses"
 include(":app")
-include(":core:thcources-core-di")
-include(":core:thcources-core-model")
-include(":core:thcources-core-ui")
-include(":data:thcources-data-mockwebserver")
-include(":data:thcources-data-network")
-include(":data:thcources-data-database")
+include(":core:thcourses-core-di")
+include(":core:thcourses-core-model")
+include(":core:thcourses-core-ui")
+include(":data:thcourses-data-mockwebserver")
+include(":data:thcourses-data-network")
+include(":data:thcourses-data-database")
+include(":data:thcourses-data-repository-courses-api")
 

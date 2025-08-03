@@ -1,4 +1,4 @@
-package com.example.thcources.gradle.android
+package com.example.thcourses.gradle.android
 
 import com.android.build.api.dsl.LibraryExtension
 import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
@@ -16,7 +16,7 @@ extensions.configure<LibraryExtension>("android") {
     compileSdk = versionCatalog.findVersion("compileSdk").get().displayName.toInt()
 
     defaultConfig {
-        namespace = "com.example.thcources"
+        namespace = "com.example.thcourses"
         minSdk = versionCatalog.findVersion("minSdk").get().displayName.toInt()
     }
 

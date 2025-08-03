@@ -1,4 +1,4 @@
-package com.example.thcources.ui.notifications
+package com.example.thcourses.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.thcources.databinding.FragmentNotificationsBinding
+import com.example.thcourses.databinding.FragmentNotificationsBinding
 
 class NotificationsFragment : Fragment() {
     private var _binding: FragmentNotificationsBinding? = null

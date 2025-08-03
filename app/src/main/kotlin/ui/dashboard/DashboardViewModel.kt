@@ -1,4 +1,4 @@
-package com.example.thcources.ui.dashboard
+package com.example.thcourses.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.example.thcources.ui.notifications
+package com.example.thcourses.ui.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

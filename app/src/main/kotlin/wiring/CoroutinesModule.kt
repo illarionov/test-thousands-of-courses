@@ -1,8 +1,8 @@
-package com.example.thcources.wiring
+package com.example.thcourses.wiring
 
-import com.example.thcources.core.di.AppMainCoroutineScope
-import com.example.thcources.core.di.ComputationCoroutineDispatcherContext
-import com.example.thcources.core.di.IoCoroutineDispatcherContext
+import com.example.thcourses.core.di.AppMainCoroutineScope
+import com.example.thcourses.core.di.ComputationCoroutineDispatcherContext
+import com.example.thcourses.core.di.IoCoroutineDispatcherContext
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

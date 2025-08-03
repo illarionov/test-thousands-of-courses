@@ -1,4 +1,4 @@
-package com.example.thcources.ui.dashboard
+package com.example.thcourses.ui.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.thcources.databinding.FragmentDashboardBinding
+import com.example.thcourses.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
     private var _binding: FragmentDashboardBinding? = null

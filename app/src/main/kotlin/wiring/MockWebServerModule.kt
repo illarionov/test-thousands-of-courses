@@ -1,9 +1,9 @@
-package com.example.thcources.wiring
+package com.example.thcourses.wiring
 
 import android.content.Context
 import androidx.core.net.toUri
-import com.example.thcources.data.mockwebserver.ThcourcesMockWebServer
-import com.example.thcources.wiring.NetworkModule.ThcourcesClient
+import com.example.thcourses.data.mockwebserver.thcoursesMockWebServer
+import com.example.thcourses.wiring.NetworkModule.thcoursesClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,10 +19,10 @@ public object MockWebServerModule {
     @Singleton
     fun providesMockWebServer(
         @ApplicationContext context: Context,
-        @ThcourcesClient baseUrl: String,
-    ): ThcourcesMockWebServer {
+        @thcoursesClient baseUrl: String,
+    ): thcoursesMockWebServer {
         val url = baseUrl.toUri()
-        return ThcourcesMockWebServer(
+        return thcoursesMockWebServer(
             port = url.port,
             inetAddress = InetAddress.getByName(url.host),
             assertManager = context.assets,

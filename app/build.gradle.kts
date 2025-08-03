@@ -1,11 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("com.example.thcources.gradle.android.hilt.ksp")
+    id("com.example.thcourses.gradle.android.hilt.ksp")
 }
 
 android {
-    namespace = "com.example.thcources"
+    namespace = "com.example.thcourses"
     compileSdk = libs.versions.compileSdk.map { it.toInt() }.get()
 
     defaultConfig {
@@ -73,10 +73,10 @@ android {
 }
 
 dependencies {
-    implementation(projects.core.thcourcesCoreDi)
-    implementation(projects.core.thcourcesCoreModel)
-    implementation(projects.core.thcourcesCoreUi)
-    implementation(projects.data.thcourcesDataMockwebserver)
+    implementation(projects.core.thcoursesCoreDi)
+    implementation(projects.core.thcoursesCoreModel)
+    implementation(projects.core.thcoursesCoreUi)
+    implementation(projects.data.thcoursesDataMockwebserver)
 
     implementation(libs.adapterdelegates)
     implementation(libs.androidx.appcompat)
