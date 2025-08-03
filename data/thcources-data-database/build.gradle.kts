@@ -10,10 +10,12 @@ android {
 }
 
 room {
-    schemaDirectory("$projectDir/schemas")
+    schemaDirectory(layout.projectDirectory.dir("schemas"))
 }
 
 dependencies {
+    api(projects.core.thcourcesCoreModel)
+
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
     implementation(libs.sqlite.bundled)
