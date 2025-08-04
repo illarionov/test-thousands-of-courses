@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public type="navigation" name="home_navigation"/>
+    <public type="string" name="title_home"/>
+    <public type="string" name="title_favorites"/>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public type="navigation" name="account_navigation"/>
+    <public type="string" name="title_account"/>
+</resources>

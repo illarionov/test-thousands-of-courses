@@ -1,11 +1,11 @@
 package com.example.thcourses.feature.auth.presentation.login
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,7 +16,6 @@ import com.example.thcourses.feature.auth.presentation.login.ExternalUrl.OK_RU_U
 import com.example.thcourses.feature.auth.presentation.login.ExternalUrl.VK_COM_URL
 import com.google.android.material.snackbar.Snackbar
 import com.example.thcourses.core.navigation.R as navR
-import androidx.core.net.toUri
 
 internal class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null

@@ -1,4 +1,4 @@
-package com.example.thcourses.feature.home.presentation.course
+package com.example.thcourses.feature.home.presentation.favorites
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,20 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.thcourses.feature.home.impl.databinding.FragmentCourseBinding
+import com.example.thcourses.feature.home.impl.databinding.FragmentFavoritesBinding
 
-internal class CourseFragment : Fragment() {
-    private var _binding: FragmentCourseBinding? = null
+internal class FavoritesFragment : Fragment() {
+    private var _binding: FragmentFavoritesBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: CourseViewModel by viewModels()
+    private val viewModel: FavoritesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentCourseBinding.inflate(inflater, container, false)
+        _binding = FragmentFavoritesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
