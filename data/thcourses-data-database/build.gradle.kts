@@ -17,7 +17,6 @@ dependencies {
     api(projects.core.thcoursesCoreModel)
 
     ksp(libs.room.compiler)
-    implementation(libs.room.ktx)
-    implementation(libs.sqlite.bundled)
+    api(libs.room.ktx)
     testImplementation(libs.room.testing)
 }

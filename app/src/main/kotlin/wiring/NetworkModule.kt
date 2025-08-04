@@ -1,47 +1,56 @@
 package com.example.thcourses.wiring
 
 import com.example.thcourses.BuildConfig
+import com.example.thcourses.core.di.ComputationCoroutineDispatcherContext
+import com.example.thcourses.data.thcoursesservice.ThcoursesNetworkDataSource
+import com.example.thcourses.data.thcoursesservice.ThcoursesNetworkDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Cache
+import okhttp3.Call
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import javax.inject.Qualifier
 import javax.inject.Singleton
+import kotlin.coroutines.CoroutineContext
 
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
     private const val OKHTTP_CACHE_SUBDIR = "thcourses"
 
-//    @Provides
-//    @Singleton
-//    internal fun providesthcoursesNetworkDataSource(
-//        @thcoursesClient okhttpClient: dagger.Lazy<@JvmSuppressWildcards OkHttpClient>,
-//        @ComputationCoroutineDispatcherContext computationDispatcher: CoroutineContext,
-//        @thcoursesClient baseUrl: String,
-//    ): thcoursesNetworkDataSource {
-//        val lazyCallFactory = Call.Factory { request: Request ->
-//            okhttpClient.get().newCall(request)
-//        }
-//
-//        return Coffee1706NetworkDataSource(
-//            callFactory = lazyCallFactory,
-//            baseUrl = baseUrl,
-//            computationDispatcherContext = computationDispatcher,
-//        )
-//    }
+    /**
+     * Network Data Source для сервиса API
+     */
+    @Provides
+    @Reusable
+    internal fun providesThcoursesNetworkDataSource(
+        @ThcoursesClient okhttpClient: dagger.Lazy<@JvmSuppressWildcards OkHttpClient>,
+        @ComputationCoroutineDispatcherContext computationDispatcher: CoroutineContext,
+        @ThcoursesClient baseUrl: String,
+    ): ThcoursesNetworkDataSource {
+        val lazyCallFactory = Call.Factory { request: Request ->
+            okhttpClient.get().newCall(request)
+        }
+
+        return ThcoursesNetworkDataSourceImpl(
+            callFactory = lazyCallFactory,
+            baseUrl = baseUrl,
+            computationDispatcherContext = computationDispatcher,
+        )
+    }
 
     /**
      * Okhhtp клиент для API
      */
     @Provides
     @Singleton
-    @thcoursesClient
+    @ThcoursesClient
     fun providethcoursesOkhttpClient(
         @RootOkhttpClient rootOkhttpClient: dagger.Lazy<@JvmSuppressWildcards OkHttpClient>,
         cache: dagger.Lazy<@JvmSuppressWildcards Cache>,
@@ -58,7 +67,7 @@ object NetworkModule {
     }
 
     @Provides
-    @thcoursesClient
+    @ThcoursesClient
     fun providesthcoursesBaseUrl(): String = BuildConfig.TSCOURCES_API_URL
 
     /**
@@ -90,7 +99,7 @@ object NetworkModule {
     annotation class RootOkhttpClient
 
     @Qualifier
-    annotation class thcoursesClient
+    annotation class ThcoursesClient
 
     @Qualifier
     annotation class LoggingInterceptor

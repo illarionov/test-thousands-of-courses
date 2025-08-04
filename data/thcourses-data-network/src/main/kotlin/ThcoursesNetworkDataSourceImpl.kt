@@ -20,11 +20,12 @@ import kotlin.coroutines.CoroutineContext
 
 private val applicationJsonMediaType = "application/json; charset=UTF8".toMediaType()
 
-public fun ThcoursesDataSource(
+@Suppress("FunctionName")
+public fun ThcoursesNetworkDataSourceImpl(
     callFactory: Call.Factory,
     baseUrl: String = "https://localhost:8888",
     computationDispatcherContext: CoroutineContext = Dispatchers.Default,
-): ThcoursesDataSource {
+): ThcoursesNetworkDataSource {
     val json = Json
     val retrofit = Retrofit.Builder().apply {
         callFactory(callFactory)
@@ -35,13 +36,13 @@ public fun ThcoursesDataSource(
     }.build()
 
     val service = retrofit.create<CoursesService>()
-    return ThcoursesDataSourceImpl(service, computationDispatcherContext)
+    return ThcoursesNetworkDataSourceImpl(service, computationDispatcherContext)
 }
 
-private class ThcoursesDataSourceImpl(
+private class ThcoursesNetworkDataSourceImpl(
     private val service: CoursesService,
     private val computationDispatcherContext: CoroutineContext,
-) : ThcoursesDataSource {
+) : ThcoursesNetworkDataSource {
     override suspend fun getCourses(): ApiResult<List<Course>, Unit> {
         val coursesDto: ApiResult<List<CourseDto>, Unit> = service.getLocations()
         return when (coursesDto) {

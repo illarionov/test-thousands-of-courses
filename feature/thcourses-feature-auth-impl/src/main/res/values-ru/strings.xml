@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_registration">Регистрация</string>
+    <string name="title_login">Вход</string>
+    <string name="error_can_not_open_url">Не удалось открыть ссылку</string>
+</resources>

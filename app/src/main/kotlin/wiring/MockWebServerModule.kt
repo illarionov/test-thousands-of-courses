@@ -3,7 +3,7 @@ package com.example.thcourses.wiring
 import android.content.Context
 import androidx.core.net.toUri
 import com.example.thcourses.data.mockwebserver.thcoursesMockWebServer
-import com.example.thcourses.wiring.NetworkModule.thcoursesClient
+import com.example.thcourses.wiring.NetworkModule.ThcoursesClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +19,7 @@ public object MockWebServerModule {
     @Singleton
     fun providesMockWebServer(
         @ApplicationContext context: Context,
-        @thcoursesClient baseUrl: String,
+        @ThcoursesClient baseUrl: String,
     ): thcoursesMockWebServer {
         val url = baseUrl.toUri()
         return thcoursesMockWebServer(

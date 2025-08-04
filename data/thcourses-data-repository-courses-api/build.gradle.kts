@@ -8,4 +8,6 @@ android {
 
 dependencies {
     api(projects.core.thcoursesCoreModel)
+    api(libs.coroutines.core)
+    implementation(platform(libs.coroutines.bom))
 }
