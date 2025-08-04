@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.Thresources.AndroidButtonSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">@font/roboto_semibold</item>
+        <item name="android:fontFamily">@font/roboto_semibold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.033</item> <!-- 0.4px / 12px -->
+        <item name="android:lineHeight">15sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="TextAppearance.Thresources.AndroidButtonSmall.Emphasized" parent="TextAppearance.Material3.TitleSmall.Emphasized">
+        <item name="fontFamily">@font/roboto_semibold</item>
+        <item name="android:fontFamily">@font/roboto_semibold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.0416</item> <!-- 0.5px / 12px -->
+        <item name="android:lineHeight">16sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+</resources>

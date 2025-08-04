@@ -5,6 +5,9 @@ plugins {
 android {
     namespace = "com.example.thcourses.core.ui"
     androidResources.enable = true
+    buildFeatures {
+        resValues = true
+    }
 }
 
 dependencies {

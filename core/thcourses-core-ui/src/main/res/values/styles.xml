@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.Thresources.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Thresources.BottomNavigationView</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="ThemeOverlay.Thresources.BottomNavigationView" parent="">
+        <item name="colorSurfaceContainer">@color/thcoursesColorDarkGray</item>
+        <item name="colorSecondaryContainer">@color/thcoursesColorLightGray</item>
+        <item name="colorOnSurface">@color/thcoursesColorGreen</item>
+        <item name="colorOnSurfaceVariant">@color/thcoursesColorWhite</item>
+        <item name="expandedHeight">80dp</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.Thresources.AndroidButtonSmall</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.Thresources.AndroidButtonSmall.Emphasized</item>
+    </style>
+
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="thcoursesColorDark">#151515</color>
+    <color name="thcoursesColorWhite">#F2F2F3</color>
+    <color name="thcoursesColorGreen">#12B956</color>
+    <color name="thcoursesColorDarkGray">#24252A</color>
+    <color name="thcoursesColorLightGray">#32333A</color>
+    <color name="thcoursesColorStroke">#32333A</color>
+    <color name="thcoursesColorStroke2">#4D555E</color>
+    <color name="thcoursesColorGlass">#4D32333A</color>
+    <color name="thcoursesColorCaption">#8032333A</color>
+    <color name="thcoursesColorIcon">#8032333A</color>
+    <color name="thcoursesColorVkBackground">#2683ED</color>
+    <color name="thcoursesColorIconBackground">#896FF6</color>
+    <color name="thcoursesColorBlogOdnoklassniki1Start">#F98509</color>
+    <color name="thcoursesColorBlogOdnoklassniki1End">#F95D00</color>
+    <color name="thcoursesColorBlogOdnoklassniki3">#ffffff</color>
+</resources>
