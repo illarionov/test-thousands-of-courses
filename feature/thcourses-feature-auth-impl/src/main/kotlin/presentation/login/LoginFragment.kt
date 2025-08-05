@@ -9,6 +9,9 @@ import androidx.core.net.toUri
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.thcourses.feature.auth.impl.R
 import com.example.thcourses.feature.auth.impl.databinding.FragmentLoginBinding
@@ -16,6 +19,7 @@ import com.example.thcourses.feature.auth.presentation.login.ExternalUrl.OK_RU_U
 import com.example.thcourses.feature.auth.presentation.login.ExternalUrl.VK_COM_URL
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import com.example.thcourses.core.navigation.R as navR
 
 @AndroidEntryPoint
@@ -41,24 +45,22 @@ internal class LoginFragment : Fragment() {
     }
 
     private fun setupListeners() {
-        with(binding) {
+        with(binding.loginForm) {
+            viewModel.onEmailChanged(emailInput.text.toString())
             emailInput.doOnTextChanged { text, _, _, _ ->
                 viewModel.onEmailChanged(text.toString())
             }
 
+            viewModel.onPasswordChanged(passwordInput.text.toString())
             passwordInput.doOnTextChanged { text, _, _, _ ->
                 viewModel.onPasswordChanged(text.toString())
             }
 
-            confirmPasswordInput.doOnTextChanged { text, _, _, _ ->
-                viewModel.onConfirmPasswordChanged(text.toString())
+            loginButton.setOnClickListener {
+                viewModel.onLoginClicked()
             }
 
-            registerButton.setOnClickListener {
-                viewModel.login()
-            }
-
-            loginLink.setOnClickListener {
+            registerLink.setOnClickListener {
                 findNavController().navigate(R.id.action_login_to_registration)
             }
 
@@ -86,17 +88,25 @@ internal class LoginFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
-            binding.registerButton.isEnabled = !isLoading
-            binding.registerButton.text = if (isLoading) "Загрузка..." else "Регистрация"
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel.isLoginButtonEnabled.collect {
+                        binding.loginForm.loginButton.isEnabled = it
+                    }
+                }
+                launch {
+                    viewModel.events.collect(::handleEvent)
+                }
+            }
         }
+    }
 
-        viewModel.error.observe(viewLifecycleOwner) { error ->
-            Snackbar.make(requireView(), error, Snackbar.LENGTH_LONG).show()
-        }
-
-        viewModel.success.observe(viewLifecycleOwner) {
-            findNavController().navigate(navR.id.nav_destination_root_home)
+    private fun handleEvent(event: LoginViewModel.Label) {
+        when (event) {
+            LoginViewModel.Label.LoginSuccess -> {
+                findNavController().navigate(R.id.action_auth_to_home)
+            }
         }
     }
 

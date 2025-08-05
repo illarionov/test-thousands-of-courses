@@ -3,4 +3,10 @@
     <string name="title_registration">Registration</string>
     <string name="title_login">Login</string>
     <string name="error_can_not_open_url">Can not open URL</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="no_account_register_button">No account? Register</string>
+    <string name="login_using_vk_content_description">Login using VK</string>
+    <string name="forgot_password">Forgot password</string>
 </resources>

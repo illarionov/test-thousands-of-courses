@@ -4,7 +4,7 @@
         android:top="0dp"
         android:height="1.5dp">
         <shape android:shape="rectangle">
-            <solid android:color="@color/thcoursesColorStroke2" />
+            <solid android:color="@color/thcoursesColorStroke" />
         </shape>
     </item>
 </layer-list>

@@ -1,63 +1,71 @@
 package com.example.thcourses.feature.auth.presentation.login
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.thcourses.core.ui.util.SingleLiveEvent
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.flow.stateIn
+import javax.inject.Inject
 
-internal class LoginViewModel() : ViewModel() {
-    private val _isLoading = MutableLiveData(false)
-    val isLoading: LiveData<Boolean> = _isLoading
+@HiltViewModel
+internal class LoginViewModel @Inject constructor() : ViewModel() {
+    private val _events = Channel<Label>(
+        capacity = Channel.UNLIMITED,
+    )
+    val events: Flow<Label> get() = _events.receiveAsFlow()
 
-    private val _error = SingleLiveEvent<String>()
-    val error: LiveData<String> = _error
+    private val _email = MutableStateFlow("")
+    val email: StateFlow<String> get() = _email
 
-    private val _success = SingleLiveEvent<Unit>()
-    val success: LiveData<Unit> = _success
+    private val _password = MutableStateFlow("")
+    val password: StateFlow<String> get() = _password
 
-    private var email = ""
-    private var password = ""
-    private var confirmPassword = ""
+    val isLoginButtonEnabled: StateFlow<Boolean> = combine(email, password) { email, password ->
+        isLoginFormValid(email, password)
+    }
+        .stateIn(
+            viewModelScope,
+            started = SharingStarted.Eagerly,
+            initialValue = false,
+        )
 
-    fun onEmailChanged(value: String) {
-        email = value
+    fun onEmailChanged(input: String) {
+        _email.value = input
     }
 
-    fun onPasswordChanged(value: String) {
-        password = value
+    fun onPasswordChanged(input: String) {
+        _password.value = input
     }
 
-    fun onConfirmPasswordChanged(value: String) {
-        confirmPassword = value
-    }
-
-    fun login() {
-        viewModelScope.launch {
-            try {
-                _isLoading.value = true
-
-                when {
-                    email.isBlank() -> _error.value = "Email не может быть пустым"
-                    !email.isValidEmail() -> _error.value = "Некорректный email"
-                    password.isBlank() -> _error.value = "Пароль не может быть пустым"
-                    password.length < 6 -> _error.value = "Пароль должен быть не менее 6 символов"
-                    password != confirmPassword -> _error.value = "Пароли не совпадают"
-                    else -> {
-                        delay(1000) // Имитация запроса
-                        _success.value = Unit
-                    }
-                }
-            } catch (e: Exception) {
-                _error.value = "Ошибка регистрации"
-            } finally {
-                _isLoading.value = false
-            }
+    fun onLoginClicked() {
+        if (isLoginFormValid(email.value, password.value)) {
+            _events.trySend(Label.LoginSuccess)
         }
     }
 
-    private fun String.isValidEmail() =
-        android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
+    internal sealed interface Label {
+        data object LoginSuccess : Label
+    }
+
+    private companion object {
+        private val emailPattern = """^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]+$""".toRegex()
+
+        fun isLoginFormValid(
+            email: String,
+            password: String,
+        ): Boolean {
+            return when {
+                password.isEmpty() -> false
+                email.isBlank() -> false
+                !email.matches(emailPattern) -> false
+                else -> true
+            }
+        }
+    }
 }

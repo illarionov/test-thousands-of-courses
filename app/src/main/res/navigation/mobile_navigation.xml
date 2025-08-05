@@ -2,7 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_destination_root_home">
+    app:startDestination="@id/nav_destination_root_home"
+    >
 
     <include app:graph="@navigation/auth_navigation" />
 
