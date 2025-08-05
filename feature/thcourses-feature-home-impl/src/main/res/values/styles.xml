@@ -11,15 +11,37 @@
         <item name="navigationIconTint">@color/thcoursesColorWhite</item>
     </style>
 
-    <style name="GreenTextButtonSmall">
+    <style name="GreenTextButtonLikeSmall">
         <item name="android:textAppearance">@style/TextAppearance.GreenTextIndicator</item>
         <item name="android:drawablePadding">4dp</item>
         <item name="android:gravity">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">none</item>
     </style>
 
+    <style name="GreenTextButtonSmall" parent="Widget.Material3.Button.TextButton">
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:gravity">center_vertical|end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:minHeight">32dp</item>
+    </style>
 
     <style name="TextAppearance.GreenTextIndicator" parent="TextAppearance.Thresources.AndroidButton">
         <item name="android:textColor">@color/thcoursesColorGreen</item>
+    </style>
+
+    <style name="TextStyle.ChipWithScrim" parent="">
+        <item name="android:paddingHorizontal">6dp</item>
+        <item name="android:paddingVertical">4dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:minEms">3</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:textColor">@color/thcoursesColorWhite</item>
+        <item name="android:background">@drawable/bg_chip_grass</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:translationZ">4dp</item>
     </style>
 
 

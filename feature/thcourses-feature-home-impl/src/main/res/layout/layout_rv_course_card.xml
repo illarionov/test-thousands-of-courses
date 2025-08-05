@@ -19,52 +19,68 @@
             android:id="@+id/imageCover"
             android:layout_width="match_parent"
             android:layout_height="140dp"
-            android:scaleType="centerCrop"
             android:contentDescription="@string/image_content_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- TODO: wrong size -->
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="28dp"
+            style="?materialIconButtonFilledTonalStyle"
+            android:contentDescription="@string/favorite_button_content_description"
+            app:icon="@drawable/favorites_toggle_icon_button_selector_small"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="8dp"
+            android:checkable="true"
+            tools:checked="false"
             />
+
 
         <TextView
             android:id="@+id/rating"
+            style="@style/TextStyle.ChipWithScrim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_rating"
-            android:padding="4dp"
-            android:textSize="14sp"
-            android:minEms="3"
             android:layout_marginStart="16dp"
-            tools:text="4.9"
-            android:layout_marginEnd="8dp"
-            android:textColor="@color/thcoursesColorWhite"
+            app:drawableLeftCompat="@drawable/ic_star_fill_12dp"
+            app:layout_constraintBottom_toBottomOf="@id/imageCover"
+            app:layout_constraintEnd_toStartOf="@+id/date"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/imageCover" />
+            tools:text="4.9" />
 
         <TextView
             android:id="@+id/date"
+            style="@style/TextStyle.ChipWithScrim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:textSize="14sp"
-            android:minEms="3"
-            tools:text="22 мая 2024"
-            android:textColor="@color/thcoursesColorWhite"
-            app:layout_constraintStart_toEndOf="@id/rating"
-            app:layout_constraintBottom_toBottomOf="@id/imageCover"
-            />
+            android:layout_marginStart="4dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/rating"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rating"
+            tools:text="22 мая 2024" />
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/thcoursesColorWhite"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@color/thcoursesColorWhite"
-            tools:text="Java-разработчик с нуля"
-            android:maxLines="1"
-            android:ellipsize="end"
-            app:layout_constraintTop_toBottomOf="@id/imageCover" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageCover"
+            tools:text="Java-разработчик с нуля" />
 
         <TextView
             android:id="@+id/description"
@@ -74,6 +90,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:textSize="14sp"
+            tools:text="Освойте backend-разработку и программирование на Java, фреймворки Spring и Maven, работу с базами данных"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title" />
@@ -86,18 +103,21 @@
             android:textColor="@color/thcoursesColorWhite"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:text="999 Р"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/description" />
+            app:layout_constraintTop_toBottomOf="@id/description"
+            tools:text="999 Р" />
 
         <TextView
             android:id="@+id/detailsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:padding="0dp"
+            style="@style/GreenTextButtonSmall"
             android:text="@string/details_button"
             android:textSize="16sp"
+            app:drawableEndCompat="@drawable/ic_arrow_right_short_filled_16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/description" />
