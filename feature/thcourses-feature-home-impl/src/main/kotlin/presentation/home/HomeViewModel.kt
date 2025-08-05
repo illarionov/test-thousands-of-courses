@@ -6,7 +6,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.thcourses.core.di.ComputationCoroutineDispatcherContext
-import com.example.thcourses.core.model.Course
 import com.example.thcourses.core.model.CourseId
 import com.example.thcourses.core.model.CourseSortOrder
 import com.example.thcourses.core.model.CourseSortOrder.PUBLISH_DATE
@@ -15,7 +14,6 @@ import com.example.thcourses.core.ui.internationalization.getCommonErrorMessage
 import com.example.thcourses.feature.home.domain.GetCoursesUseCase
 import com.example.thcourses.feature.home.domain.SetCourseFavoriteUseCase
 import com.example.thcourses.feature.home.presentation.shared.mapper.mapCoursesResult
-import com.example.thcourses.feature.home.presentation.shared.mapper.toCourseListItem
 import com.example.thcourses.feature.home.presentation.shared.model.CourseListItem
 import com.slack.eithernet.ApiResult
 import dagger.hilt.android.lifecycle.HiltViewModel

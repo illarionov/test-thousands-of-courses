@@ -6,6 +6,7 @@ import com.slack.eithernet.ApiResult
 import kotlinx.coroutines.flow.Flow
 
 public interface ThcourcesRepository {
+    public fun getCourse(id: CourseId): Flow<ApiResult<Course, Unit>>
     public fun getCourses(): Flow<ApiResult<List<Course>, Unit>>
     public suspend fun setFavorite(courseId: CourseId, isFavorite: Boolean)
 }

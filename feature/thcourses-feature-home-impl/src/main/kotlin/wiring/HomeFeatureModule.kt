@@ -1,5 +1,7 @@
 package com.example.thcourses.feature.home.wiring
 
+import com.example.thcourses.feature.home.domain.GetCourseUseCase
+import com.example.thcourses.feature.home.domain.GetCourseUseCaseImpl
 import com.example.thcourses.feature.home.domain.GetCoursesUseCase
 import com.example.thcourses.feature.home.domain.GetCoursesUseCaseImpl
 import com.example.thcourses.feature.home.domain.GetFavoriteCoursesUseCase
@@ -30,5 +32,9 @@ internal object HomeFeatureModule {
         @Binds
         @ViewModelScoped
         fun bindsGetFavoriteCoursesUseCase(impl: GetFavoriteCoursesUseCaseImpl): GetFavoriteCoursesUseCase
+
+        @Binds
+        @ViewModelScoped
+        fun bindsGetCourseUseCase(impl: GetCourseUseCaseImpl): GetCourseUseCase
     }
 }

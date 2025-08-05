@@ -4,6 +4,7 @@ import com.example.thcourses.core.model.Course
 import com.example.thcourses.core.model.CourseId
 import com.example.thcourses.data.repository.courses.api.ThcourcesRepository
 import com.example.thcourses.data.thcoursesservice.ThcoursesNetworkDataSource
+import com.example.thcourses.data.thcoursesservice.getCourse
 import com.example.thcourses.like.CourseLikeDao
 import com.example.thcourses.like.CourseLikeEntity
 import com.slack.eithernet.ApiResult
@@ -46,6 +47,37 @@ public class ThcourcesRepositoryImpl(
             }
         }
             .flowOn(computationDispatcherContext)
+    }
+
+    override fun getCourse(courseId: CourseId): Flow<ApiResult<Course, Unit>> {
+        val networkFlow: Flow<ApiResult<Course, Unit>> = flow {
+            emit(network.getCourse(courseId))
+        }
+
+        val likesFlow: Flow<ApiResult<List<CourseLikeEntity>, Unit>> = localLikesDao.getLikeFlow(courseId = courseId)
+            .map { likes: List<CourseLikeEntity> ->
+                ApiResult.success(likes) as ApiResult<List<CourseLikeEntity>, Unit>
+            }
+
+        return combine(
+            networkFlow,
+            likesFlow,
+        ) { course: ApiResult<Course, Unit>, likes: ApiResult<List<CourseLikeEntity>, Unit> ->
+            when {
+                course is ApiResult.Success<Course> && likes is ApiResult.Success<List<CourseLikeEntity>> -> {
+                    val hasOverriddenLike = likes.value.firstOrNull()?.hasLike
+                    val newCourse = if (hasOverriddenLike != null) {
+                        course.value.copy(hasLike = hasOverriddenLike)
+                    } else {
+                        course.value
+                    }
+                    ApiResult.success(newCourse)
+                }
+
+                course is ApiResult.Failure -> course
+                else -> likes as ApiResult.Failure
+            }
+        }
     }
 
     override suspend fun setFavorite(courseId: CourseId, isFavorite: Boolean) {

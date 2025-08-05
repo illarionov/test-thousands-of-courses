@@ -10,4 +10,7 @@
     <string name="details_button">Details</string>
     <string name="favorite_button_content_description">Is Favorite</string>
     <string name="sort_order_unsorted">Sort by default</string>
+    <string name="button_start_course">Start course</string>
+    <string name="go_to_platform_button">Got to platform</string>
+    <string name="about_course">About the course</string>
 </resources>

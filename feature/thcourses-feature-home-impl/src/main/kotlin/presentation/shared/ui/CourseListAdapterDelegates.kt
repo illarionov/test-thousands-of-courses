@@ -1,7 +1,6 @@
 package com.example.thcourses.feature.home.presentation.shared.ui
 
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
 import coil3.load
 import coil3.request.error
 import coil3.request.placeholder

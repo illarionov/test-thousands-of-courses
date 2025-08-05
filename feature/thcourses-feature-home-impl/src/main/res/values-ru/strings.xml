@@ -10,4 +10,7 @@
     <string name="details_button">Подробнее</string>
     <string name="favorite_button_content_description">Is Favorite</string>
     <string name="sort_order_unsorted">Сортировка по умолчанию</string>
+    <string name="button_start_course">Начать курс</string>
+    <string name="go_to_platform_button">Перейти на платформу</string>
+    <string name="about_course">О курсе</string>
 </resources>

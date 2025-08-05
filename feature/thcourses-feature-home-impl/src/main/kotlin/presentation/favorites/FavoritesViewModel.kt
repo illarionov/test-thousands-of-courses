@@ -23,7 +23,7 @@ import kotlin.coroutines.CoroutineContext
 
 @HiltViewModel
 internal class FavoritesViewModel @Inject constructor(
-    private val getFavoriteCourseUseCase: GetFavoriteCoursesUseCase,
+    getFavoriteCourseUseCase: GetFavoriteCoursesUseCase,
     private val setFavoriteUseCase: SetCourseFavoriteUseCase,
     @param:ComputationCoroutineDispatcherContext private val computationDispatcherContext: CoroutineContext,
 ) : ViewModel() {
