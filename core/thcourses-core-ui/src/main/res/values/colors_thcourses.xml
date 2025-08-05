@@ -2,6 +2,7 @@
 <resources>
     <color name="thcoursesColorDark">#151515</color>
     <color name="thcoursesColorWhite">#F2F2F3</color>
+    <color name="thcoursesColorWhiteTranslucent50">#80F2F2F3</color>
     <color name="thcoursesColorGreen">#12B956</color>
     <color name="thcoursesColorDarkGray">#24252A</color>
     <color name="thcoursesColorLightGray">#32333A</color>

@@ -3,4 +3,9 @@
     <string name="title_home">Главная</string>
     <string name="title_favorites">Избранное</string>
     <string name="title_course">Курс</string>
+    <string name="search_courses_hint">Search courses…</string>
+    <string name="content_description_filter">Filter</string>
+    <string name="sort_order_by_date">По дате добавления</string>
+    <string name="image_content_description">Изображение для привлечения внимания</string>
+    <string name="details_button">Подробнее</string>
 </resources>

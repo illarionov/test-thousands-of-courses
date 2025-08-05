@@ -9,6 +9,7 @@
         <item name="android:lineHeight">15sp</item>
         <item name="android:textAlignment">center</item>
     </style>
+
     <style name="TextAppearance.Thresources.AndroidButtonSmall.Emphasized" parent="TextAppearance.Material3.TitleSmall.Emphasized">
         <item name="fontFamily">@font/roboto_semibold</item>
         <item name="android:fontFamily">@font/roboto_semibold</item>
@@ -18,4 +19,14 @@
         <item name="android:lineHeight">16sp</item>
         <item name="android:textAlignment">center</item>
     </style>
+
+    <style name="TextAppearance.Thresources.AndroidButton" parent="">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.0071</item> <!-- 0.1px / 14px -->
+        <item name="android:lineHeight">20sp</item>
+    </style>
+
 </resources>
