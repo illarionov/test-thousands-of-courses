@@ -18,7 +18,7 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 @HiltAndroidApp
-class thcoursesApplication : SingletonImageLoader.Factory,  Application() {
+class ThcoursesApplication : SingletonImageLoader.Factory,  Application() {
     @set:Inject
     var coilImageLoaderFactory: Provider<CoilImageLoaderFactory>? = null
 

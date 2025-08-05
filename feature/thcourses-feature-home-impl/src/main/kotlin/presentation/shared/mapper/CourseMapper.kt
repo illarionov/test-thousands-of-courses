@@ -1,7 +1,7 @@
-package com.example.thcourses.feature.home.presentation.mapper
+package com.example.thcourses.feature.home.presentation.shared.mapper
 
 import com.example.thcourses.core.model.Course
-import com.example.thcourses.feature.home.presentation.model.CourseListItem
+import com.example.thcourses.feature.home.presentation.shared.model.CourseListItem
 
 internal fun Course.toCourseListItem(): CourseListItem = CourseListItem(
     id = id,

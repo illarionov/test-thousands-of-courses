@@ -15,8 +15,10 @@ import com.example.thcourses.feature.auth.impl.databinding.FragmentLoginBinding
 import com.example.thcourses.feature.auth.presentation.login.ExternalUrl.OK_RU_URL
 import com.example.thcourses.feature.auth.presentation.login.ExternalUrl.VK_COM_URL
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import com.example.thcourses.core.navigation.R as navR
 
+@AndroidEntryPoint
 internal class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!

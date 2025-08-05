@@ -44,5 +44,9 @@
         <item name="android:translationZ">4dp</item>
     </style>
 
+    <style name="RoundCornersImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/course_card_corner_radius</item>
+    </style>
 
 </resources>

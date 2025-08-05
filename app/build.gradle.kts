@@ -19,7 +19,7 @@ android {
 
         val apiUrl = providers
             .environmentVariable("TSCOURCES_API_URL")
-            .getOrElse("http://127.0.0.1:8888/")
+            .getOrElse("http://localhost:8888/")
         buildConfigField("String", "TSCOURCES_API_URL", "\"$apiUrl\"")
     }
 
@@ -94,7 +94,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.coil.network.okhttp)
-    implementation(libs.coil.xml)
+    implementation(libs.coil.android.view)
     implementation(libs.coroutines.core)
     implementation(libs.material)
     implementation(libs.okhttp.logging.interceptor)

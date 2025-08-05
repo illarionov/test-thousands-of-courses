@@ -3,28 +3,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="?attr/materialCardViewFilledStyle"
-    app:cardCornerRadius="16dp"
+    app:cardCornerRadius="@dimen/course_card_corner_radius"
     app:cardBackgroundColor="@color/thcoursesColorDarkGray"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+    android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp">
-
-        <ImageView
+        android:layout_height="wrap_content">
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageCover"
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:contentDescription="@string/image_content_description"
             android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/RoundCornersImageView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- TODO: wrong size -->
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/favoriteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="28dp"
@@ -38,13 +38,13 @@
             tools:checked="false"
             />
 
-
         <TextView
             android:id="@+id/rating"
             style="@style/TextStyle.ChipWithScrim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
             app:drawableLeftCompat="@drawable/ic_star_fill_12dp"
             app:layout_constraintBottom_toBottomOf="@id/imageCover"
             app:layout_constraintEnd_toStartOf="@+id/date"

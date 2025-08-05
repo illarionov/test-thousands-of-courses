@@ -1,4 +1,4 @@
-package com.example.thcourses.core.ui.internationalization.formatter.price
+package com.example.thcourses.core.ui.internationalization.formatter
 
 import java.math.BigDecimal
 import java.text.NumberFormat

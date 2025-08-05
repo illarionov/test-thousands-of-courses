@@ -14,8 +14,8 @@ import com.example.thcourses.core.model.CourseSortOrder.UNSORTED
 import com.example.thcourses.core.ui.internationalization.getCommonErrorMessage
 import com.example.thcourses.feature.home.domain.GetCoursesUseCase
 import com.example.thcourses.feature.home.domain.SetCourseFavoriteUseCase
-import com.example.thcourses.feature.home.presentation.mapper.toCourseListItem
-import com.example.thcourses.feature.home.presentation.model.CourseListItem
+import com.example.thcourses.feature.home.presentation.shared.mapper.toCourseListItem
+import com.example.thcourses.feature.home.presentation.shared.model.CourseListItem
 import com.slack.eithernet.ApiResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -23,6 +23,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flatMapConcat
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
@@ -41,7 +42,7 @@ internal class HomeViewModel @Inject constructor(
         savedStateHandle.getMutableStateFlow("sortOrder", UNSORTED)
 
     val uiState: StateFlow<HomeUiState> = sortOrderFlow
-        .flatMapConcat { sortOrder ->
+        .flatMapLatest { sortOrder ->
             getCourseUseCase
                 .getCoursesFlow(sortOrder)
                 .map(::mapCoursesResult)

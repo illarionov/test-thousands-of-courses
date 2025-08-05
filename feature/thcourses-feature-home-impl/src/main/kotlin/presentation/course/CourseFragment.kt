@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.thcourses.feature.home.impl.databinding.FragmentCourseBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 internal class CourseFragment : Fragment() {
     private var _binding: FragmentCourseBinding? = null
     private val binding get() = _binding!!

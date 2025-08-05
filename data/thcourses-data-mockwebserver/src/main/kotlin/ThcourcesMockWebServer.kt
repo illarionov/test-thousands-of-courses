@@ -26,7 +26,7 @@ public class thcoursesMockWebServer(
                 encodedPath == "/v1/courses" && method == "GET" ->
                     assertManager.readMockJsonResponse("courses.json")
                 encodedPath.matches(IMG_URL_REGEX) && request.method == "GET" ->
-                    assertManager.readMockJsonResponse("request.url.encodedPath")
+                    assertManager.readMockJsonResponse(request.url.encodedPath.trimStart { it == '/' })
                 else -> MockResponse.Builder().code(404).build()
             }
         }

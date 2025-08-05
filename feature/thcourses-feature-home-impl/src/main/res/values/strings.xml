@@ -9,4 +9,5 @@
     <string name="image_content_description">Image to attract attention</string>
     <string name="details_button">Details</string>
     <string name="favorite_button_content_description">Is Favorite</string>
+    <string name="sort_order_unsorted">Сортировка по умолчанию</string>
 </resources>

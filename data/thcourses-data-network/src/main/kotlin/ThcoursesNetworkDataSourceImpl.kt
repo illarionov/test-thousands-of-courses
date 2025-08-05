@@ -3,6 +3,7 @@ package com.example.thcourses.data.thcoursesservice
 import com.example.thcourses.core.model.Course
 import com.example.thcourses.data.thcoursesservice.mapper.toCourse
 import com.example.thcourses.data.thcoursesservice.service.CourseDto
+import com.example.thcourses.data.thcoursesservice.service.CoursesDto
 import com.example.thcourses.data.thcoursesservice.service.CoursesService
 import com.slack.eithernet.ApiResult
 import com.slack.eithernet.integration.retrofit.ApiResultCallAdapterFactory
@@ -36,20 +37,21 @@ public fun ThcoursesNetworkDataSourceImpl(
     }.build()
 
     val service = retrofit.create<CoursesService>()
-    return ThcoursesNetworkDataSourceImpl(service, computationDispatcherContext)
+    return ThcoursesNetworkDataSourceImpl(service, baseUrl, computationDispatcherContext)
 }
 
 private class ThcoursesNetworkDataSourceImpl(
     private val service: CoursesService,
+    private val baseUrl: String,
     private val computationDispatcherContext: CoroutineContext,
 ) : ThcoursesNetworkDataSource {
     override suspend fun getCourses(): ApiResult<List<Course>, Unit> {
-        val coursesDto: ApiResult<List<CourseDto>, Unit> = service.getLocations()
+        val coursesDto: ApiResult<CoursesDto, Unit> = service.getLocations()
         return when (coursesDto) {
-            is ApiResult.Success<List<CourseDto>> -> {
+            is ApiResult.Success<CoursesDto> -> {
                 withContext(computationDispatcherContext) {
                     try {
-                        val courses: List<Course> = coursesDto.value.map(CourseDto::toCourse)
+                        val courses: List<Course> = coursesDto.value.courses.map { it.toCourse(baseUrl) }
                         ApiResult.success(courses)
                     } catch (ex: RuntimeException) {
                         coroutineContext.ensureActive()

@@ -1,4 +1,4 @@
-package com.example.thcourses.feature.home.presentation.model
+package com.example.thcourses.feature.home.presentation.shared.model
 
 import com.example.thcourses.core.model.CourseId
 import com.example.thcourses.core.model.Rate

@@ -7,7 +7,7 @@ import com.example.thcourses.data.thcoursesservice.service.CourseDto
 import kotlinx.datetime.LocalDate
 import java.math.BigDecimal
 
-internal fun CourseDto.toCourse(): Course = Course(
+internal fun CourseDto.toCourse(baseUrl: String): Course = Course(
     id = CourseId(this.id),
     title = this.title,
     text = this.text,
@@ -16,7 +16,7 @@ internal fun CourseDto.toCourse(): Course = Course(
     hasLike = this.hasLike,
     startDate = parseDate(this.startDate),
     publishDate = parseDate(this.publishDate),
-    imageUrl = getImageUrl(CourseId(this.id))
+    imageUrl = getImageUrl(baseUrl, CourseId(this.id))
 )
 
 private fun parsePrice(price: String): BigDecimal = price.filter { it.isDigit() }.toBigDecimal()
@@ -33,7 +33,8 @@ private val MOCK_IMAGE_URLS: List<String> = listOf(
  * В JSON нет URL изображений, поэтому добавляем их сами
  */
 private fun getImageUrl(
-    courseId: CourseId
+    baseUrl: String,
+    courseId: CourseId,
 ): String? {
-    return MOCK_IMAGE_URLS[courseId.value.mod(MOCK_IMAGE_URLS.size) ]
+    return baseUrl.trimEnd { it == '/' } + MOCK_IMAGE_URLS[courseId.value.mod(MOCK_IMAGE_URLS.size) ]
 }
