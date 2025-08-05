@@ -2,22 +2,22 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_destination_root_favorites"
-    app:startDestination="@+id/navigation_favorites">
+    android:id="@id/favorites_nav_graph"
+    app:startDestination="@+id/favorites_fragment">
 
     <fragment
-        android:id="@+id/navigation_favorites"
+        android:id="@+id/favorites_fragment"
         android:name="com.example.thcourses.feature.home.presentation.favorites.FavoritesFragment"
         android:label="@string/title_favorites"
         tools:layout="@layout/fragment_favorites">
 
         <action
             android:id="@+id/action_favorites_to_course"
-            app:destination="@id/navigation_course" />
+            app:destination="@id/course_fragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_course"
+        android:id="@+id/course_fragment"
         android:name="com.example.thcourses.feature.home.presentation.course.CourseFragment"
         android:label="@string/title_course"
         tools:layout="@layout/fragment_course">

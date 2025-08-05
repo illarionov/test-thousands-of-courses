@@ -14,6 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.thcourses.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import com.example.thcourses.core.navigation.R as NavR
 import com.example.thcourses.feature.auth.impl.R as AuthR
 
 @AndroidEntryPoint
@@ -42,9 +43,9 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { controller, destination: NavDestination, arguments ->
             val isAuth = when (destination.id) {
-                AuthR.id.navigation_login,
-                AuthR.id.navigation_registration,
-                AuthR.id.auth_navigation,
+                AuthR.id.login_fragment,
+                AuthR.id.registration_fragment,
+                AuthR.id.auth_nav_graph,
                     -> true
 
                 else -> false
@@ -58,9 +59,9 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             navController.navigate(
-                resId = AuthR.id.auth_navigation,
+                resId = AuthR.id.auth_nav_graph,
                 navOptions = NavOptions.Builder()
-                    .setPopUpTo(R.id.nav_destination_root_home, true)
+                    .setPopUpTo(NavR.id.home_nav_graph, true)
                     .build(),
                 args = null,
             )

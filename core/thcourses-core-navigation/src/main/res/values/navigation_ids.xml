@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <id name="nav_destination_root_home" />
-    <id name="nav_destination_root_favorites" />
-    <id name="nav_destination_root_account" />
+    <id name="home_nav_graph" />
+    <id name="favorites_nav_graph" />
+    <id name="account_nav_graph" />
 </resources>
