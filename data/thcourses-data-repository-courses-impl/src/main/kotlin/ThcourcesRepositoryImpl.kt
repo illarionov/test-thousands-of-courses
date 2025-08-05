@@ -23,7 +23,9 @@ public class ThcourcesRepositoryImpl(
     override fun getCourses(): Flow<ApiResult<List<Course>, Unit>> {
         val networkFlow = flow { emit(network.getCourses()) }
         val likesFlow: Flow<ApiResult<List<CourseLikeEntity>, Unit>> = localLikesDao.getLikesFlow()
-            .map { ApiResult.success(it) as ApiResult<List<CourseLikeEntity>, Unit> }
+            .map { likes: List<CourseLikeEntity> ->
+                ApiResult.success(likes) as ApiResult<List<CourseLikeEntity>, Unit>
+            }
             .catch { error ->
                 val result = ApiResult.apiFailure<Unit>().withTags(mapOf(Exception::class to error))
                 emit(result)

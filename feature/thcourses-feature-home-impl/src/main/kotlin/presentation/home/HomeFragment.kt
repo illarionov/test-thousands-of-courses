@@ -32,7 +32,7 @@ internal class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: HomeViewModel by viewModels()
-    private val courseAdapter = createCourseListAdapter(
+    private val coursesAdapter = createCourseListAdapter(
         onFavoriteClick = { courseId, isFavorite ->
             viewModel.setFavorite(courseId, isFavorite)
         },
@@ -77,7 +77,7 @@ internal class HomeFragment : Fragment() {
 
     private fun setupRecyclerView() {
         binding.cards.apply {
-            adapter = courseAdapter
+            adapter = coursesAdapter
             layoutManager = LinearLayoutManager(requireContext())
             addItemDecoration(
                 VerticalSpacingItemDecoration(
@@ -113,7 +113,7 @@ internal class HomeFragment : Fragment() {
 
     private fun showContent(state: HomeUiState.Success) {
         binding.cards.isVisible = true
-        courseAdapter.items = state.courses
+        coursesAdapter.items = state.courses
 
         binding.sortOrderIndicator.setText(
             when (state.sortOrder) {

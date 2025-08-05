@@ -6,8 +6,10 @@ import com.example.thcourses.core.model.CourseSortOrder
 import com.example.thcourses.core.model.CourseSortOrder.PUBLISH_DATE
 import com.example.thcourses.core.model.CourseSortOrder.UNSORTED
 import com.example.thcourses.data.repository.courses.api.ThcourcesRepository
+import com.example.thcourses.data.repository.courses.api.util.mapSuccess
 import com.slack.eithernet.ApiResult
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
@@ -25,15 +27,9 @@ internal class GetCoursesUseCaseImpl @Inject constructor(
             UNSORTED -> repository.getCourses()
             PUBLISH_DATE -> repository.getCourses()
                 .map { result: ApiResult<List<Course>, Unit> ->
-                    when (result) {
-                        is ApiResult.Success<List<Course>> -> {
-                            val newList: List<Course> = result.value.sortedBy(Course::publishDate)
-                            ApiResult.success(newList)
-                        }
-
-                        is ApiResult.Failure -> result
-                    }
+                    result.mapSuccess { courses -> courses.sortedBy(Course::publishDate) }
                 }
+                .flowOn(computationDispatcherContext)
         }
     }
 

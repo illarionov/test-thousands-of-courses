@@ -15,4 +15,14 @@
             android:id="@+id/action_favorites_to_course"
             app:destination="@id/navigation_course" />
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_course"
+        android:name="com.example.thcourses.feature.home.presentation.course.CourseFragment"
+        android:label="@string/title_course"
+        tools:layout="@layout/fragment_course">
+        <argument
+            android:name="courseId"
+            app:argType="long" />
+    </fragment>
 </navigation>

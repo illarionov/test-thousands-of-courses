@@ -14,6 +14,7 @@ import com.example.thcourses.core.model.CourseSortOrder.UNSORTED
 import com.example.thcourses.core.ui.internationalization.getCommonErrorMessage
 import com.example.thcourses.feature.home.domain.GetCoursesUseCase
 import com.example.thcourses.feature.home.domain.SetCourseFavoriteUseCase
+import com.example.thcourses.feature.home.presentation.shared.mapper.mapCoursesResult
 import com.example.thcourses.feature.home.presentation.shared.mapper.toCourseListItem
 import com.example.thcourses.feature.home.presentation.shared.model.CourseListItem
 import com.slack.eithernet.ApiResult
@@ -22,7 +23,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -79,19 +79,6 @@ internal class HomeViewModel @Inject constructor(
         sortOrderFlow.value = when (sortOrderFlow.value) {
             UNSORTED -> PUBLISH_DATE
             PUBLISH_DATE -> UNSORTED
-        }
-    }
-
-    companion object {
-        private fun mapCoursesResult(
-            courses: ApiResult<List<Course>, Unit>,
-        ): ApiResult<List<CourseListItem>, Unit> = when (courses) {
-            is ApiResult.Success<List<Course>> -> {
-                val listItems = courses.value.map(Course::toCourseListItem)
-                ApiResult.success(listItems)
-            }
-
-            is ApiResult.Failure -> courses
         }
     }
 }

@@ -2,6 +2,8 @@ package com.example.thcourses.feature.home.wiring
 
 import com.example.thcourses.feature.home.domain.GetCoursesUseCase
 import com.example.thcourses.feature.home.domain.GetCoursesUseCaseImpl
+import com.example.thcourses.feature.home.domain.GetFavoriteCoursesUseCase
+import com.example.thcourses.feature.home.domain.GetFavoriteCoursesUseCaseImpl
 import com.example.thcourses.feature.home.domain.SetCourseFavoriteUseCase
 import com.example.thcourses.feature.home.domain.SetCourseFavoriteUseCaseImpl
 import dagger.Binds
@@ -24,5 +26,9 @@ internal object HomeFeatureModule {
         @Binds
         @ViewModelScoped
         fun bindsSetCourseFavoriteUseCase(impl: SetCourseFavoriteUseCaseImpl): SetCourseFavoriteUseCase
+
+        @Binds
+        @ViewModelScoped
+        fun bindsGetFavoriteCoursesUseCase(impl: GetFavoriteCoursesUseCaseImpl): GetFavoriteCoursesUseCase
     }
 }

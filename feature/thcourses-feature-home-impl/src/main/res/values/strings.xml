@@ -5,9 +5,9 @@
     <string name="title_course">Course</string>
     <string name="search_courses_hint">Search courses…</string>
     <string name="content_description_filter">Filter</string>
-    <string name="sort_order_by_date">By date</string>
+    <string name="sort_order_by_date">Sort By date</string>
     <string name="image_content_description">Image to attract attention</string>
     <string name="details_button">Details</string>
     <string name="favorite_button_content_description">Is Favorite</string>
-    <string name="sort_order_unsorted">Сортировка по умолчанию</string>
+    <string name="sort_order_unsorted">Sort by default</string>
 </resources>
