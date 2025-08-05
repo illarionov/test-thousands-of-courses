@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 public interface ThcourcesRepository {
     public fun getCourses(): Flow<ApiResult<List<Course>, Unit>>
-    public suspend fun setLike(courseId: CourseId, hasLike: Boolean)
+    public suspend fun setFavorite(courseId: CourseId, isFavorite: Boolean)
 }

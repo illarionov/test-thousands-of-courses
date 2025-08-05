@@ -12,5 +12,6 @@ android {
 
 dependencies {
     api(projects.core.thcoursesCoreModel)
+    api(libs.eithernet)
     api(libs.material)
 }

@@ -46,8 +46,8 @@ public class ThcourcesRepositoryImpl(
             .flowOn(computationDispatcherContext)
     }
 
-    override suspend fun setLike(courseId: CourseId, hasLike: Boolean) {
-        localLikesDao.setLike(CourseLikeEntity(courseId = courseId, hasLike = hasLike))
+    override suspend fun setFavorite(courseId: CourseId, isFavorite: Boolean) {
+        localLikesDao.setLike(CourseLikeEntity(courseId = courseId, hasLike = isFavorite))
     }
 
     private companion object {

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="response_error_api_failure">Ошика на стороне сервера</string>
+    <string name="response_error_unknown_http_code_failure">Ошибка на стороне сервера (%1$d)</string>
+    <string name="response_error_user_input_error">Ошибка в введенных данных</string>
+    <string name="response_error_user_not_found">Пользователь не найден</string>
+    <string name="response_error_authorization_error">Ошибка авторизации. Код: %1$d</string>
+    <string name="response_error_unknown_failure">Ошибка сети или сервера</string>
+    <string name="response_error_no_internet_connection">Сеть недоступна</string>
+    <string name="response_error_network_failure">Ошибка сети</string>
+    <string name="response_error_server_temporarily_error">Временная ошибка на сервере, попробкйте позже</string>
+    <string name="response_error_user_unauthorized">Пользователь не авторизован</string>
+</resources>

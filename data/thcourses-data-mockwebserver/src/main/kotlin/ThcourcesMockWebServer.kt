@@ -20,15 +20,13 @@ public class thcoursesMockWebServer(
 ) : AutoCloseable {
     private val dispatcher: Dispatcher = object : Dispatcher() {
         override fun dispatch(request: RecordedRequest): MockResponse {
-            return when (request.url.encodedPath) {
-                "/v1/courses" -> if (request.method == "GET") {
+            val encodedPath = request.url.encodedPath
+            val method = request.method
+            return when {
+                encodedPath == "/v1/courses" && method == "GET" ->
                     assertManager.readMockJsonResponse("courses.json")
-                } else {
-                    MockResponse.Builder()
-                        .code(405)
-                        .status("Method not allowed")
-                        .build()
-                }
+                encodedPath.matches(IMG_URL_REGEX) && request.method == "GET" ->
+                    assertManager.readMockJsonResponse("request.url.encodedPath")
                 else -> MockResponse.Builder().code(404).build()
             }
         }
@@ -49,6 +47,7 @@ public class thcoursesMockWebServer(
 
     public companion object {
         private const val ASSERT_BASE_PATH = "mockwebserver"
+        private val IMG_URL_REGEX = """^/img/cover\d+.jpg$""".toRegex()
 
         private fun AssetManager.readMockJsonResponse(path: String): MockResponse {
             return try {

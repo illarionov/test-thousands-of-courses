@@ -15,9 +15,25 @@ internal fun CourseDto.toCourse(): Course = Course(
     rate = Rate(this.rate),
     hasLike = this.hasLike,
     startDate = parseDate(this.startDate),
-    publishDate = parseDate(this.publishDate)
+    publishDate = parseDate(this.publishDate),
+    imageUrl = getImageUrl(CourseId(this.id))
 )
 
 private fun parsePrice(price: String): BigDecimal = price.filter { it.isDigit() }.toBigDecimal()
 
 private fun parseDate(date: String): LocalDate = LocalDate.parse(date)
+
+private val MOCK_IMAGE_URLS: List<String> = listOf(
+    "/img/cover1.jpg",
+    "/img/cover2.jpg",
+    "/img/cover3.jpg",
+)
+
+/**
+ * В JSON нет URL изображений, поэтому добавляем их сами
+ */
+private fun getImageUrl(
+    courseId: CourseId
+): String? {
+    return MOCK_IMAGE_URLS[courseId.value.mod(MOCK_IMAGE_URLS.size) ]
+}

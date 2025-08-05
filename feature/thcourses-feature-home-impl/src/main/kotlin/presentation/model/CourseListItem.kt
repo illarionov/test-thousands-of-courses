@@ -1,9 +1,11 @@
-package com.example.thcourses.core.model
+package com.example.thcourses.feature.home.presentation.model
 
+import com.example.thcourses.core.model.CourseId
+import com.example.thcourses.core.model.Rate
 import kotlinx.datetime.LocalDate
 import java.math.BigDecimal
 
-public data class Course(
+internal data class CourseListItem(
     val id: CourseId,
     val title: String,
     val text: String,
@@ -12,9 +14,4 @@ public data class Course(
     val rate: Rate,
     val hasLike: Boolean,
     val startDate: LocalDate,
-    val publishDate: LocalDate
 )
-
-@JvmInline
-public value class CourseId(public val value: Long)
-

@@ -9,7 +9,6 @@ import dagger.Provides
 import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Cache
 import okhttp3.Call
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -22,8 +21,6 @@ import kotlin.coroutines.CoroutineContext
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    private const val OKHTTP_CACHE_SUBDIR = "thcourses"
-
     /**
      * Network Data Source для сервиса API
      */
@@ -53,11 +50,9 @@ object NetworkModule {
     @ThcoursesClient
     fun providethcoursesOkhttpClient(
         @RootOkhttpClient rootOkhttpClient: dagger.Lazy<@JvmSuppressWildcards OkHttpClient>,
-        cache: dagger.Lazy<@JvmSuppressWildcards Cache>,
         @LoggingInterceptor loggingInterceptor: Interceptor?,
     ): OkHttpClient {
         return rootOkhttpClient.get().newBuilder()
-            .cache(cache.get())
             .apply {
                 if (loggingInterceptor != null) {
                     addInterceptor(loggingInterceptor)
