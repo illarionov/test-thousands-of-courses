@@ -4,7 +4,7 @@
 
 ### Стек
 
-Kotlin, Retrofit, Coroutines, Flow, Hilt, MVVM/MVI, AdapterDelegates, XML (не Compose), Clean, многомодульность, Room, MockWebServer, Material 3
+Kotlin, Retrofit, Coroutines, Flow, Hilt, MVVM/MVI, AdapterDelegates, XML (не Compose), Clean, многомодульность, Room, MockWebServer, Material 3, Coil
 
 ### Комментарии
 
