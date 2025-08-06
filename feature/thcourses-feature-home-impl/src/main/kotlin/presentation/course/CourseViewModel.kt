@@ -18,7 +18,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.Unit
 
 @HiltViewModel
 internal class CourseViewModel @Inject constructor(

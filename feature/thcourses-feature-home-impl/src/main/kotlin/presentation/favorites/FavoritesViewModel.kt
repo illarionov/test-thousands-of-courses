@@ -7,7 +7,6 @@ import com.example.thcourses.core.model.CourseId
 import com.example.thcourses.core.ui.internationalization.getCommonErrorMessage
 import com.example.thcourses.feature.home.domain.GetFavoriteCoursesUseCase
 import com.example.thcourses.feature.home.domain.SetCourseFavoriteUseCase
-import com.example.thcourses.feature.home.presentation.home.HomeUiState
 import com.example.thcourses.feature.home.presentation.shared.mapper.mapCoursesResult
 import com.example.thcourses.feature.home.presentation.shared.model.CourseListItem
 import com.slack.eithernet.ApiResult

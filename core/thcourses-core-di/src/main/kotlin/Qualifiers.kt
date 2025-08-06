@@ -2,8 +2,6 @@ package com.example.thcourses.core.di
 
 import javax.inject.Qualifier
 
-// TODO: remove?
-
 /**
  * Глобальный Coroutine Scope приложения. Main thread, supervisor job. Не используем GlobalScope.
  */

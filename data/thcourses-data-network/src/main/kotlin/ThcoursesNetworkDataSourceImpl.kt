@@ -2,7 +2,6 @@ package com.example.thcourses.data.thcoursesservice
 
 import com.example.thcourses.core.model.Course
 import com.example.thcourses.data.thcoursesservice.mapper.toCourse
-import com.example.thcourses.data.thcoursesservice.service.CourseDto
 import com.example.thcourses.data.thcoursesservice.service.CoursesDto
 import com.example.thcourses.data.thcoursesservice.service.CoursesService
 import com.slack.eithernet.ApiResult

@@ -25,7 +25,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailInputLayout"
-        style="@style/Widget.Material3.TextInputLayout.FilledBox"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -43,12 +43,11 @@
             android:inputType="textEmailAddress"
             android:autofillHints="email"
             android:maxLines="1" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordInputLayout"
-        style="@style/Widget.Material3.TextInputLayout.FilledBox"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -120,7 +119,7 @@
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/login_using_vk_content_description"
         app:srcCompat="@drawable/ic_vk_40dp_white"
-        app:shapeAppearanceOverlay="@style/VkOkButtonImageView"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.HalfRoundedCorner"
         android:background="@color/thcoursesColorVkBackground"
         app:layout_constraintEnd_toStartOf="@id/okButton"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -135,7 +134,7 @@
         android:contentDescription="@string/login_using_vk_content_description"
         android:textColor="@color/thcoursesColorWhite"
         android:background="@drawable/ok_button_background"
-        app:shapeAppearanceOverlay="@style/VkOkButtonImageView"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.HalfRoundedCorner"
         app:srcCompat="@drawable/ic_ok_40dp_white"
         app:layout_constraintTop_toTopOf="@id/vkButton"
         app:layout_constraintEnd_toEndOf="parent"

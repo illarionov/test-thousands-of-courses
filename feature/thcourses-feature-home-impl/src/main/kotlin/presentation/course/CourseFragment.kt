@@ -11,7 +11,6 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import coil3.load
-import com.example.thcourses.core.model.Rate
 import com.example.thcourses.core.ui.internationalization.formatter.DateFormatter
 import com.example.thcourses.core.ui.internationalization.formatter.RatingFormatter
 import com.example.thcourses.core.ui.internationalization.message.getString

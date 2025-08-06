@@ -2,7 +2,6 @@ package com.example.thcourses.feature.home.domain
 
 import com.example.thcourses.core.di.ComputationCoroutineDispatcherContext
 import com.example.thcourses.core.model.Course
-import com.example.thcourses.core.model.CourseSortOrder
 import com.example.thcourses.data.repository.courses.api.ThcourcesRepository
 import com.example.thcourses.data.repository.courses.api.util.mapSuccess
 import com.slack.eithernet.ApiResult
