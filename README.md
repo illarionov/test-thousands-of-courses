@@ -2,7 +2,7 @@
 
 Тестовое задание с 3-4 экранами приложения с курсами разработчиков.
 
-APK: [В releases](http://github.com/illarionov/test-thousands-of-courses/releases/tag/untagged-9c27dba646738a961796)
+APK: [releases](https://github.com/illarionov/test-thousands-of-courses/releases/tag/v0.1)
 
 ### Стек
 
