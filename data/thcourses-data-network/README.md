@@ -1,3 +1,3 @@
-# thcourses-data-database
+# thcourses-data-network
 
-Общая база данных
+Реализация сетевого DataSource на основе API сервиса

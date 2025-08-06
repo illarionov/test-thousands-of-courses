@@ -1,3 +1,3 @@
-# thcourses-feature-onboarding
+# thcourses-feature-auth
 
-Onboarding, без реализации
+Экраны логина и регистрации

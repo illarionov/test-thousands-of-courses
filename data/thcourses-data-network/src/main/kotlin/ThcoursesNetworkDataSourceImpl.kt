@@ -45,7 +45,7 @@ private class ThcoursesNetworkDataSourceImpl(
     private val computationDispatcherContext: CoroutineContext,
 ) : ThcoursesNetworkDataSource {
     override suspend fun getCourses(): ApiResult<List<Course>, Unit> {
-        val coursesDto: ApiResult<CoursesDto, Unit> = service.getLocations()
+        val coursesDto: ApiResult<CoursesDto, Unit> = service.getCourses()
         return when (coursesDto) {
             is ApiResult.Success<CoursesDto> -> {
                 withContext(computationDispatcherContext) {

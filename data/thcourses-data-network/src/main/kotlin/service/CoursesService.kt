@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 internal interface CoursesService {
     @GET("/v1/courses")
-    suspend fun getLocations(): ApiResult<CoursesDto, Unit>
+    suspend fun getCourses(): ApiResult<CoursesDto, Unit>
 }

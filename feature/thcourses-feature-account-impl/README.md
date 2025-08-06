@@ -1,3 +1,3 @@
-# thcourses-feature-home
+# thcourses-feature-account
 
-Основной экран и экран курса
+Заглушка для экрана аккаунта

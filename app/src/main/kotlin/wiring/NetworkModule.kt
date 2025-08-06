@@ -48,7 +48,7 @@ object NetworkModule {
     @Provides
     @Singleton
     @ThcoursesClient
-    fun providethcoursesOkhttpClient(
+    fun provideThcoursesOkhttpClient(
         @RootOkhttpClient rootOkhttpClient: dagger.Lazy<@JvmSuppressWildcards OkHttpClient>,
         @LoggingInterceptor loggingInterceptor: Interceptor?,
     ): OkHttpClient {
@@ -63,7 +63,7 @@ object NetworkModule {
 
     @Provides
     @ThcoursesClient
-    fun providesthcoursesBaseUrl(): String = BuildConfig.TSCOURCES_API_URL
+    fun providesThcoursesBaseUrl(): String = BuildConfig.TSCOURCES_API_URL
 
     /**
      * Базовый okhttp клиент, от которого создаются клиенты под конкретные сервисы.

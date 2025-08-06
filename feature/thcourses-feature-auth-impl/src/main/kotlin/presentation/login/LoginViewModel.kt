@@ -28,12 +28,11 @@ internal class LoginViewModel @Inject constructor() : ViewModel() {
 
     val isLoginButtonEnabled: StateFlow<Boolean> = combine(email, password) { email, password ->
         isLoginFormValid(email, password)
-    }
-        .stateIn(
-            viewModelScope,
-            started = SharingStarted.Eagerly,
-            initialValue = false,
-        )
+    }.stateIn(
+        viewModelScope,
+        started = SharingStarted.Eagerly,
+        initialValue = false,
+    )
 
     fun onEmailChanged(input: String) {
         _email.value = input

@@ -16,25 +16,20 @@ import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
 @InstallIn(ViewModelComponent::class)
-internal object HomeFeatureModule {
+internal interface HomeFeatureModule {
+    @Binds
+    @ViewModelScoped
+    fun bindsGetCoursesUseCase(impl: GetCoursesUseCaseImpl): GetCoursesUseCase
 
-    @Module
-    @InstallIn(ViewModelComponent::class)
-    internal interface HomeFeatureModuleBinds {
-        @Binds
-        @ViewModelScoped
-        fun bindsGetCoursesUseCase(impl: GetCoursesUseCaseImpl): GetCoursesUseCase
+    @Binds
+    @ViewModelScoped
+    fun bindsSetCourseFavoriteUseCase(impl: SetCourseFavoriteUseCaseImpl): SetCourseFavoriteUseCase
 
-        @Binds
-        @ViewModelScoped
-        fun bindsSetCourseFavoriteUseCase(impl: SetCourseFavoriteUseCaseImpl): SetCourseFavoriteUseCase
+    @Binds
+    @ViewModelScoped
+    fun bindsGetFavoriteCoursesUseCase(impl: GetFavoriteCoursesUseCaseImpl): GetFavoriteCoursesUseCase
 
-        @Binds
-        @ViewModelScoped
-        fun bindsGetFavoriteCoursesUseCase(impl: GetFavoriteCoursesUseCaseImpl): GetFavoriteCoursesUseCase
-
-        @Binds
-        @ViewModelScoped
-        fun bindsGetCourseUseCase(impl: GetCourseUseCaseImpl): GetCourseUseCase
-    }
+    @Binds
+    @ViewModelScoped
+    fun bindsGetCourseUseCase(impl: GetCourseUseCaseImpl): GetCourseUseCase
 }

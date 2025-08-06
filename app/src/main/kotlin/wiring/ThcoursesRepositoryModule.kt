@@ -22,5 +22,4 @@ object ThcoursesRepositoryModule {
         localLikesDao: CourseLikeDao,
         @ComputationCoroutineDispatcherContext computationDispatcherContext: CoroutineContext,
     ):  ThcourcesRepository = ThcourcesRepositoryImpl(network, localLikesDao, computationDispatcherContext)
-
 }
