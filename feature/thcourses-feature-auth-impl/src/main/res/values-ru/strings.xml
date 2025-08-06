@@ -6,7 +6,7 @@
     <string name="email_hint">Email</string>
     <string name="password_hint">Пароль</string>
     <string name="login_button">Вход</string>
-    <string name="no_account_register_button">Нет аккаунта? Регистрация</string>
+    <string name="no_account_register_button"><font fgcolor="#F2F2F3">Нет аккаунта?</font> Регистрация</string>
     <string name="login_using_vk_content_description">Войти через VK</string>
     <string name="forgot_password">Забыл пароль</string>
 </resources>

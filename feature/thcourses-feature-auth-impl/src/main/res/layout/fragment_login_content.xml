@@ -4,8 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/activity_horizontal_margin"
+    android:paddingTop="100dp"
+    android:paddingBottom="24dp"
+    android:clipToPadding="false"
+    android:layout_gravity="bottom"
     tools:showIn="@layout/fragment_login">
 
     <TextView
@@ -13,7 +17,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/title_login"
-        android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
+        style="?textAppearanceHeadlineMedium"
         android:textColor="@color/thcoursesColorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +70,7 @@
 
     <Button
         android:id="@+id/loginButton"
+        style="@style/TextButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -74,13 +79,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordInputLayout" />
 
-    <TextView
+    <Button
         android:id="@+id/registerLink"
+        style="@style/SmallTextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:paddingVertical="0dp"
         android:text="@string/no_account_register_button"
-        android:textColor="@color/thcoursesColorGreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/loginButton" />
@@ -89,9 +95,9 @@
         android:id="@+id/forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        style="@style/SmallTextButton"
+        android:layout_marginTop="6dp"
         android:text="@string/forgot_password"
-        android:textColor="@color/thcoursesColorGreen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/registerLink" />
@@ -101,7 +107,7 @@
         android:layout_height="1dp"
         android:id="@+id/divider"
         android:background="@color/thcoursesColorStroke"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/forgotPassword" />

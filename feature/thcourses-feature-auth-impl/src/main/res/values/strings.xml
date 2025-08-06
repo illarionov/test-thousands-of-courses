@@ -6,7 +6,7 @@
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="login_button">Login</string>
-    <string name="no_account_register_button">No account? Register</string>
+    <string name="no_account_register_button"><font fgcolor="#F2F2F3">No account?</font> Register</string>
     <string name="login_using_vk_content_description">Login using VK</string>
     <string name="forgot_password">Forgot password</string>
 </resources>

@@ -29,4 +29,14 @@
         <item name="android:lineHeight">20sp</item>
     </style>
 
+    <style name="TextAppearance.Thresources.AndroidHeadline" parent="@style/TextAppearance.M3.Sys.Typescale.HeadlineMedium">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">36sp</item>
+    </style>
+
+
 </resources>

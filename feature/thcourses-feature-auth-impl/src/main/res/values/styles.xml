@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="VkOkButtonImageView">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="SmallTextButton" parent = "@style/Widget.Material3.Button.TextButton">
+        <item name="android:minHeight">15dp</item>
+        <item name="android:paddingVertical">2dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Thresources.AndroidButtonSmall</item>
+    </style>
+
+    <style name="TextButton" parent="@style/Widget.Material3.Button">
+        <item name="android:textAppearance">@style/TextAppearance.Thresources.AndroidButton</item>
     </style>
 
 </resources>
