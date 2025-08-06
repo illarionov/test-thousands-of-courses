@@ -2,6 +2,8 @@
 
 Тестовое задание с 3-4 экранами приложения с курсами разработчиков.
 
+APK: [В releases](http://github.com/illarionov/test-thousands-of-courses/releases/tag/untagged-9c27dba646738a961796)
+
 ### Стек
 
 Kotlin, Retrofit, Coroutines, Flow, Hilt, MVVM/MVI, AdapterDelegates, XML (не Compose), Clean, многомодульность, 
