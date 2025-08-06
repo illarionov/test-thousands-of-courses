@@ -10,7 +10,7 @@ import coil3.disk.DiskCache
 import coil3.disk.directory
 import coil3.memory.MemoryCache
 import coil3.network.okhttp.OkHttpNetworkFetcherFactory
-import com.example.thcourses.data.mockwebserver.thcoursesMockWebServer
+import com.example.thcourses.data.mockwebserver.ThcoursesMockWebServer
 import com.example.thcourses.wiring.NetworkModule.RootOkhttpClient
 import dagger.hilt.android.HiltAndroidApp
 import okhttp3.OkHttpClient
@@ -23,7 +23,7 @@ class ThcoursesApplication : SingletonImageLoader.Factory,  Application() {
     var coilImageLoaderFactory: Provider<CoilImageLoaderFactory>? = null
 
     @set:Inject
-    var mockWebServer: Provider<thcoursesMockWebServer>? = null
+    var mockWebServer: Provider<ThcoursesMockWebServer>? = null
 
     override fun onCreate() {
         super.onCreate()

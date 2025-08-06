@@ -13,9 +13,9 @@ import okio.buffer
 import okio.source
 import java.net.InetAddress
 
-public class thcoursesMockWebServer(
+public class ThcoursesMockWebServer(
     private val port: Int,
-    private val inetAddress: InetAddress? = null,
+    private val inetAddress: (() -> InetAddress)? = null,
     private val assertManager: AssetManager,
 ) : AutoCloseable {
     private val dispatcher: Dispatcher = object : Dispatcher() {
@@ -25,20 +25,35 @@ public class thcoursesMockWebServer(
             return when {
                 encodedPath == "/v1/courses" && method == "GET" ->
                     assertManager.readMockJsonResponse("courses.json")
+
                 encodedPath.matches(IMG_URL_REGEX) && request.method == "GET" ->
                     assertManager.readMockJsonResponse(request.url.encodedPath.trimStart { it == '/' })
+
                 else -> MockResponse.Builder().code(404).build()
             }
         }
     }
     private val server: MockWebServer = MockWebServer().apply {
-        dispatcher = this@thcoursesMockWebServer.dispatcher
+        dispatcher = this@ThcoursesMockWebServer.dispatcher
     }
 
     public fun getBaseUrl(): HttpUrl = server.url("/")
 
     public fun start() {
-        server.start(inetAddress ?: InetAddress.getLocalHost(), port)
+        object : Thread() {
+            override fun run() {
+                // Resolve address on background thread
+                val inetAddress = if (inetAddress != null) {
+                    inetAddress()
+                } else {
+                    InetAddress.getLocalHost()
+                }
+                server.start(inetAddress, port)
+            }
+        }.apply {
+            start()
+            join() // XXX блокируем основной поток, но нам нужен запущенный сервер до выполнения операций
+        }
     }
 
     override fun close() {
