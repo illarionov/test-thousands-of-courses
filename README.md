@@ -4,6 +4,12 @@
 
 APK: [releases](https://github.com/illarionov/test-thousands-of-courses/releases/tag/v0.1)
 
+## Статус
+
+* Отметили + многомодульность и - несответствие экранов макетам
+* Прошёл техническое собеседование
+* Сообщили, что вакансия закрыта, однако могут выйти на связь при появлении новых
+
 ### Стек
 
 Kotlin, Retrofit, Coroutines, Flow, Hilt, MVVM/MVI, AdapterDelegates, XML (не Compose), Clean, многомодульность, 
